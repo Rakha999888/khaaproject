@@ -1,0 +1,128 @@
+/* Animasi untuk ikon hobi */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Animasi untuk ikon skills/tools */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-5deg);
+  }
+}
+
+/* Animasi untuk ikon skills/tools */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animasi untuk latar belakang kartu */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Kelas untuk animasi hobi */
+.hobby-icon {
+  animation: float 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.hobby-icon:hover {
+  animation: float 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.6));
+}
+
+/* Kelas untuk animasi skills/tools */
+.skill-icon {
+  transition: all 0.3s ease;
+  animation: bounce 8s ease-in-out infinite;
+}
+
+.skill-icon:hover {
+  animation: spin 1s linear infinite, bounce 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.6));
+}
+
+/* Efek hover untuk kartu */
+.hobby-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hobby-card {
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #1f2937, #111827);
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.hobby-card:hover {
+  background: linear-gradient(45deg, #111827, #1f2937);
+  background-size: 200% 200%;
+  animation: gradientBG 8s ease infinite;
+}
+
+/* Animasi untuk teks */
+.hobby-text {
+  transition: all 0.3s ease;
+}
+
+.hobby-card:hover .hobby-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animasi untuk border */
+.animate-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-border::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: gradientBG 8s ease infinite;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-card:hover.animate-border::after {
+  opacity: 1;
+}
